@@ -8,7 +8,7 @@ import random
 
 api_id = 22242100
 api_hash = '56a81fbba93ce35282c3e7e310175d1e'
-phone_number = input("شماره خود را وارد کنید (مثال: +989123456789): ")
+phone_number = '+989394203705'  # شماره‌ات را مستقیم اینجا بگذار یا ورودی بگیر
 
 client = TelegramClient('session', api_id, api_hash)
 
@@ -124,7 +124,7 @@ ydl_opts = {
     }],
     'logger': None,
     'quiet': True,
-    'cookiefile': 'cookies.txt',  # اینجا فایل کوکی‌ها باید باشه
+    'cookiefile': 'cookies.txt',  # اینجا فایل کوکی‌ها باید باشه اگر داری
 }
 
 async def show_progress(event, logger):
@@ -200,8 +200,7 @@ async def handler_song(event):
 async def main():
     await client.start(phone_number)
     print("بات شروع به کار کرد.")
-    # اگر دوست داری بایو آپدیت اتوماتیک هم روشن باشه
-    # asyncio.create_task(update_bio())
+    asyncio.create_task(update_bio())  # اگر میخوای بایو آپدیت خودکار باشه این رو فعال کن
     await client.run_until_disconnected()
 
-asyncio.run(main())
+asyncio.run(main()
